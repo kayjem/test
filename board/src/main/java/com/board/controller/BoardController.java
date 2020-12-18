@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +19,16 @@ import com.board.service.BoardService;
 @RequestMapping("/board/*")
 public class BoardController {
 
- @Inject
- private BoardService service;
+	/**
+	 * 생성자 주입
+	 */
+	private final BoardService service;
 
-	 //게시물 목록
+	public BoardController(BoardService service) {
+		this.service = service;
+	}
+
+	//게시물 목록
 	 @RequestMapping(value = "/list", method = RequestMethod.GET)
 	 public void getList(Model model) throws Exception {
 	  

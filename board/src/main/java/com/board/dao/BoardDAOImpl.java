@@ -12,12 +12,15 @@ import com.board.domain.BoardVO;
 @Repository
 public class BoardDAOImpl implements BoardDAO {
 
-	 @Inject
-	 private SqlSession sql;
+	private final SqlSession sql;
 	 
-	 private static String namespace = "com.board.mappers.board";
-	
-	 // 게시물 목록
+	private static String namespace = "com.board.mappers.board";
+
+	public BoardDAOImpl(SqlSession sql) {
+		this.sql = sql;
+	}
+
+	// 게시물 목록
 	 @Override
 	 public List<BoardVO> list() throws Exception { 
 	    return sql.selectList(namespace + ".list");

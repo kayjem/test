@@ -12,10 +12,13 @@ import com.board.domain.BoardVO;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-	 @Inject
-	 private BoardDAO dao;
-	 
-	 //게시물 목록
+	private final BoardDAO dao;
+
+	public BoardServiceImpl(BoardDAO dao) {
+		this.dao = dao;
+	}
+
+	//게시물 목록
 	 @Override
 	 public List<BoardVO> list() throws Exception {
 		 return dao.list();
