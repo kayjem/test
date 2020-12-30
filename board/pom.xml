@@ -122,6 +122,7 @@
 		    <groupId>org.mariadb.jdbc</groupId>
 		    <artifactId>mariadb-java-client</artifactId>
 		    <version>2.3.0</version>
+            <scope>runtime</scope>
 		</dependency>
 		
 		<!-- org.mybatis/mybatis -->
@@ -146,6 +147,17 @@
 		</dependency>
 	</dependencies>
     <build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>env/**</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources/env/${environment}</directory>
+			</resource>
+		</resources>
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -183,4 +195,30 @@
             </plugin>
         </plugins>
     </build>
+
+	<profiles>
+		<profile>
+			<id>H2</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+            <properties>
+				<environment>h2</environment>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+					<version>1.4.200</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>MariaDB</id>
+			<properties>
+				<environment>mariadb</environment>
+			</properties>
+		</profile>
+	</profiles>
 </project>

@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.board.mappers.board.BoardMapper;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.board.domain.BoardVO;
@@ -15,12 +17,15 @@ public class BoardDAOImpl implements BoardDAO {
 
 	 @Inject
 	 private SqlSession sql;
-	 
+
+	 @Autowired
+	 private BoardMapper boardMapper;
+
 	 private static String namespace = "com.board.mappers.board";
 	
 	 // 게시물 목록
 	 @Override
-	 public List<BoardVO> list() throws Exception { 
+	 public List<BoardVO> list() throws Exception {
 	    return sql.selectList(namespace + ".list");
 	 }
 

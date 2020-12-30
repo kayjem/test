@@ -1,13 +1,13 @@
 package com.board.service;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
 import com.board.dao.BoardDAO;
 import com.board.domain.BoardVO;
+
+import java.util.List;
 
 @Service
 public class BoardServiceImpl implements BoardService {
