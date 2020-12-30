@@ -13,5 +13,6 @@ public interface BoardDAO {
 	public void delete(int bno) throws Exception;
 	public int count() throws Exception;
 	public List listPage(int displayPost, int postNum) throws Exception;
+	public List<BoardVO> listPageSearch(int displayPost, int postNum, String searchType, String keyword) throws Exception;
 
 }
