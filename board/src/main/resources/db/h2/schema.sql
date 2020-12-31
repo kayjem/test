@@ -1,0 +1,10 @@
+DROP TABLE tbl_board IF EXISTS;
+
+CREATE TABLE tbl_board (
+    bno INTEGER IDENTITY PRIMARY KEY,
+    title VARCHAR(50) NOT NULL,
+    content TEXT NOT NULL,
+    writer VARCHAR(30) NOT NULL,
+    regDate TIMESTAMP NOT NULL DEFAULT NOW(),
+    viewCnt INTEGER DEFAULT 0
+);
