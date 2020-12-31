@@ -93,10 +93,10 @@ public class BoardController {
 	// search
 	// 게시물 목록 + 페이징 추가 + 검색
 	@RequestMapping(value = "/listPageSearch", method = RequestMethod.GET)
-	public void getListPageSearch(Model model, @RequestParam("num") int num, 
-			@RequestParam(value = "searchType",required = false, defaultValue = "title") String searchType,
-			   @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword
-			   ) throws Exception {
+	public void getListPageSearch(Model model,
+								  @RequestParam("num") int num,
+								  @RequestParam(value = "searchType",required = false, defaultValue = "title") String searchType,
+								  @RequestParam(value = "keyword",required = false, defaultValue = "") String keyword) throws Exception {
 
 	 
 	 Page page = new Page();

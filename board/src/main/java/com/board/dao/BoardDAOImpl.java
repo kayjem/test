@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.board.domain.BoardVO;
 
-@Repository
+//@Repository
 public class BoardDAOImpl implements BoardDAO {
 
 	 @Inject
