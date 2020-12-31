@@ -14,5 +14,5 @@ public interface BoardDAO {
 	public int count() throws Exception;
 	public List listPage(int displayPost, int postNum) throws Exception;
 	public List<BoardVO> listPageSearch(int displayPost, int postNum, String searchType, String keyword) throws Exception;
-
+	public int searchCount(String searchType, String keyword) throws Exception;
 }
