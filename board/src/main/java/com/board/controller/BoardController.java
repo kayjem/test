@@ -22,7 +22,8 @@ public class BoardController {
 
  @Inject
  private BoardService service;
- private Object ReplyService;
+ @Inject
+ private ReplyService rservice;
 
 	 //게시물 목록
 	 @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -54,7 +55,7 @@ public class BoardController {
 		
 		// 댓글 조회
 		List<ReplyVO> reply = null;
-		reply = com.board.service.ReplyService.list(bno);
+		reply = rservice.list(bno);
 		model.addAttribute("reply", reply);
 	}
 	

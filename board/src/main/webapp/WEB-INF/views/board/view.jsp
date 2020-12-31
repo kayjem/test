@@ -35,7 +35,7 @@
 				<p>${reply.writer} / ${reply.regDate}</p>
 				<p>${reply.content }</p>
 			</div>
-		</li>	
+		</li>
 		</c:forEach>
 	</ul>	
 	<div>

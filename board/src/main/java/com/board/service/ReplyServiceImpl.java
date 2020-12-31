@@ -10,14 +10,13 @@ import com.board.dao.ReplyDAO;
 import com.board.domain.ReplyVO;
 
 @Service
-public class ReplyServiceImpl implements ReplyDAO {
+public class ReplyServiceImpl implements ReplyService {
 
 	@Inject
-	private ReplyDAO dao;
+	private ReplyService dao;
 
 	// 댓글 조회
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<ReplyVO> list(int bno) throws Exception {
 		return dao.list(bno);
 	}
@@ -42,4 +41,5 @@ public class ReplyServiceImpl implements ReplyDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }
